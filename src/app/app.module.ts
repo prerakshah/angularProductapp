@@ -1,32 +1,29 @@
 import { NgModule }      from '@angular/core';
 import {RouterModule}    from '@angular/router'; 
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule} from '@angular/http';
 
+import {ProductModule} from './products/product.module';
 import { AppComponent }  from './app.component';
 import {HomeComponent}   from './home/home.component';
-import {ProductListComponent} from './products/product-list.component';
-
-import {ProductService} from './products/product.service';
 
 @NgModule({
   imports:      [ 
     BrowserModule, 
-    HttpModule,
+    ProductModule,
     RouterModule.forRoot ([
       {path: 'home', component:HomeComponent},
-      {path: 'products', component:ProductListComponent},
       {path: '', redirectTo:'home', pathMatch:'full'},
       {path: '**', redirectTo:'home', pathMatch:'full'}
     ])
   ],
+  exports: [BrowserModule],
   declarations: [ 
     AppComponent,
-    HomeComponent,
-    ProductListComponent ],
-
-  providers: [ProductService],
-
+    HomeComponent
+     ],
+   
+  providers: [],
+  
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

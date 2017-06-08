@@ -3,9 +3,12 @@
         {{pageTitle}}
     </div>
     
+   <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+
     <div class='panel-body'>
         <div class='table-responsive'>
-            <table class='table'>
+            <table class='table' *ngIf='products && products.length' >
                 <thead>
                     <tr>
                         <th>

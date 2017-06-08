@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var platform_browser_1 = require("@angular/platform-browser");
+var http_1 = require("@angular/http");
 var product_service_1 = require("./product.service");
 var product_list_component_1 = require("./product-list.component");
 var ProductModule = (function () {
@@ -18,6 +20,8 @@ var ProductModule = (function () {
 ProductModule = __decorate([
     core_1.NgModule({
         imports: [
+            platform_browser_1.BrowserModule,
+            http_1.HttpModule,
             router_1.RouterModule.forChild([
                 { path: 'products', component: product_list_component_1.ProductListComponent }
             ])

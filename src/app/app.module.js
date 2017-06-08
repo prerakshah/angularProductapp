@@ -9,11 +9,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var platform_browser_1 = require("@angular/platform-browser");
-var http_1 = require("@angular/http");
+var product_module_1 = require("./products/product.module");
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
-var product_list_component_1 = require("./products/product-list.component");
-var product_service_1 = require("./products/product.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,20 +21,19 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            http_1.HttpModule,
+            product_module_1.ProductModule,
             router_1.RouterModule.forRoot([
                 { path: 'home', component: home_component_1.HomeComponent },
-                { path: 'products', component: product_list_component_1.ProductListComponent },
                 { path: '', redirectTo: 'home', pathMatch: 'full' },
                 { path: '**', redirectTo: 'home', pathMatch: 'full' }
             ])
         ],
+        exports: [platform_browser_1.BrowserModule],
         declarations: [
             app_component_1.AppComponent,
-            home_component_1.HomeComponent,
-            product_list_component_1.ProductListComponent
+            home_component_1.HomeComponent
         ],
-        providers: [product_service_1.ProductService],
+        providers: [],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
