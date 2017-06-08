@@ -1,0 +1,14 @@
+typings
+**/app/**/*.js
+**/app/**/*.map
+node_modules/
+npm-debug.log
+jspm_packages
+bower_components
+
+.vs
+**/*.sou
+**/*.user
+bin
+obj
+packages
