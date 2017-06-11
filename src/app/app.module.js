@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var platform_browser_1 = require("@angular/platform-browser");
+//import { BrowserModule } from '@angular/platform-browser';
 var product_module_1 = require("./products/product.module");
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
@@ -20,7 +20,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [
-            platform_browser_1.BrowserModule,
+            // BrowserModule,
             product_module_1.ProductModule,
             router_1.RouterModule.forRoot([
                 { path: 'home', component: home_component_1.HomeComponent },
@@ -28,7 +28,7 @@ AppModule = __decorate([
                 { path: '**', redirectTo: 'home', pathMatch: 'full' }
             ])
         ],
-        exports: [platform_browser_1.BrowserModule],
+        // exports: [BrowserModule],
         declarations: [
             app_component_1.AppComponent,
             home_component_1.HomeComponent

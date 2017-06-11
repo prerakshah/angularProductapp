@@ -7,6 +7,17 @@
 
 
     <div class='panel-body'>
+        <div calss='row'> 
+               <div class='col-mod-2'>Filter By: </div>
+               <div class='col-mod-4'>
+                   <input type="text" [(ngModel)]="listFilter" />
+               </div>
+        </div>
+        <div class='row' *ngIf="listFilter">
+            <div class='col-mod-6'>
+                <h3>Filter By: {{listFilter}} </h3>
+            </div>
+        </div>
         <div class='table-responsive'>
             <table class='table' *ngIf='products && products.length' >
                 <thead>
@@ -24,7 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of products'>
+                    <tr *ngFor='let product of products | productFilter: listFilter'>
                         <td>
                             <img *ngIf='showImage' 
                             [src]='product.imageUrl' 
@@ -37,7 +48,10 @@
                             <td> {{product.productCode | lowercase }} </td>
                             <td> {{product.releaseDate}} </td>
                             <td> {{product.price | currency:'USD':true:'1.2-2'}}</td>
-                            <td> {{product.starRating}} </td>
+                            <td> <ai-star [rating]='product.starRating' 
+                                          (ratingClicked)='onRatingCliecked($event)' > 
+                                 </ai-star> 
+                            </td>
                     </tr>
                 </tbody>
             </table>

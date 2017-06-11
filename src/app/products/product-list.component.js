@@ -15,6 +15,7 @@ var ProductListComponent = (function () {
     function ProductListComponent(_productService) {
         this._productService = _productService;
         this.pageTitle = "Product List";
+        this.listFilter = null;
         this.showImage = false;
         this.imageWidth = 50;
         this.imageMargine = 2;
@@ -27,11 +28,15 @@ var ProductListComponent = (function () {
         this._productService.getProducts()
             .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
     };
+    ProductListComponent.prototype.onRatingCliecked = function (message) {
+        this.pageTitle = 'Product Detail: ' + message;
+    };
     return ProductListComponent;
 }());
 ProductListComponent = __decorate([
     core_1.Component({
-        templateUrl: './product-list.component.html'
+        moduleId: module.id,
+        templateUrl: 'product-list.component.html'
     }),
     __metadata("design:paramtypes", [product_service_1.ProductService])
 ], ProductListComponent);
