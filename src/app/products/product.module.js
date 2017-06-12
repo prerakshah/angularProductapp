@@ -10,10 +10,11 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
-var forms_1 = require("@angular/forms");
+//import {FormsModule} from '@angular/forms';
 var shared_module_1 = require("../shared/shared.module");
 var product_service_1 = require("./product.service");
 var product_list_component_1 = require("./product-list.component");
+var product_detail_component_1 = require("./product-detail.component");
 var product_filter_pipe_1 = require("./product-filter.pipe");
 var ProductModule = (function () {
     function ProductModule() {
@@ -24,10 +25,11 @@ ProductModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            forms_1.FormsModule,
+            // FormsModule,
             http_1.HttpModule,
             router_1.RouterModule.forChild([
-                { path: 'products', component: product_list_component_1.ProductListComponent }
+                { path: 'products', component: product_list_component_1.ProductListComponent },
+                { path: 'products/id', component: product_detail_component_1.ProductDetailComponent }
             ]),
             shared_module_1.SharedModule
         ],
